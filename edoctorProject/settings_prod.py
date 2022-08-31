@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'edoctorProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mysql.connector.django',
         'OPTIONS': {
             'sql_mode': 'traditional',
             'charset': 'utf8mb4',
