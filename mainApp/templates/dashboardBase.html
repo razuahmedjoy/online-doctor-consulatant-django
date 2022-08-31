@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'css/dashboard.min.css' %}" />
+  <!-- <link rel="stylesheet" href="{% static 'css/tailwind.css' %}" /> -->
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+
+  <link rel="stylesheet" href="{% static 'css/daisyui.css' %}" />
+  
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <script src="{% static 'js/init-alpine.js' %}"></script>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
+  <script src="{% static 'js/charts-lines.js' %}" defer></script>
+  <script src="{% static 'js/charts-pie.js' %}" defer></script> -->
+
+  <title>
+    {%block dashboardtitle%}
+    Dashboard
+    {%endblock dashboardtitle%}
+  </title>
+  <style>
+    .sidemenu-active {
+      background: #3abff8;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+    {% block sidebar %}
+
+    {% endblock sidebar %}
+
+    <div class="flex flex-col flex-1 w-full">
+
+      {%block dashboardheader %}
+      {% include 'components/dashboardheader.html' %}
+      {%endblock dashboardheader %}
+
+      {% block body %}
+      {% endblock body %}
+
+
+      {%block dashboardScript %}
+      
+      {%endblock dashboardScript %}
+
+
+
+
+    </div>
+  </div>
+</body>
+
+</html>

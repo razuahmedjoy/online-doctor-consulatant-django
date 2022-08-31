@@ -1,0 +1,198 @@
+{% extends "dashboardBase.html" %}
+{% load static %}
+
+{%block dashboardtitle %}
+Appointment Details
+{%endblock dashboardtitle %}
+
+{% block sidebar %}
+
+{% include "doctor/doctor_sidebar.html" %}
+
+{% endblock sidebar %}
+
+
+{% block body %}
+<main class="h-full overflow-y-auto">
+    <div class="container px-6 mx-auto grid">
+
+        <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-white">
+            Details <span
+                class="py-1 px-2  rounded-full bg-success text-white font-normal text-sm">{{appointment.status}}</span>
+        </h2>
+
+        <!-- Cards -->
+        <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-3">
+
+            <!--Prescription Card -->
+            <div id="prescription" class="p-4 bg-white shadow-xs dark:bg-gray-800 dark:text-white col-span-2 min-h-[450px]">
+
+                <div class="flex justify-between">
+                    <div>
+                        <p class="text-lg font-medium text-gray-600 dark:text-gray-400">
+                            {{appointment.doctor.full_name}}
+                        </p>
+                        <p class="text-sm text-gray-500">
+                            {{appointment.doctor.designation}}
+
+                        </p>
+                    </div>
+                    <p>
+                        <span class="text-sm md:text-md font-medium text-gray-600 dark:text-gray-400">Date :</span>
+                        <span class="text-xs md:text-sm text-gray-500">{{appointment.created_at}}</span>
+
+                    </p>
+
+
+                </div>
+                <hr class="my-2 text-gray-500">
+
+                <div>
+                    <p>
+                        <span class="text-md font-medium text-gray-600 dark:text-gray-400">Patient Name :</span>
+                        <span class="text-sm text-gray-500">{{appointment.patient.full_name}}</span>
+                    </p>
+
+
+
+                    <p>
+                        <span class="text-md font-medium text-gray-600 dark:text-gray-400">Problem :</span>
+                        <span class="text-sm text-gray-500">{{appointment.description}}</span>
+                    </p>
+
+
+                </div>
+                <hr class="my-2 text-gray-500">
+
+                <div style="min-height: 100px;">
+
+                    <h1 class="font-medium text-md">Medicines :</h1>
+                    <div class="ml-5 mt-2">
+                        {% for medicine in medicines %}
+                        <p>{{medicine.medicine}} - {{medicine.measure}}</p>
+                        {%endfor %}
+                    </div>
+
+                </div>
+                <div style="min-height: 100px;">
+
+                    <h1 class="font-medium text-md">Comment :</h1>
+                   <div class="ml-5 mt-2">
+                    <p>{{prescription.comment}}</p>
+                   </div>
+
+                </div>
+
+                <div class="prescription-footer position-fixed bottom-0">
+                    <div class="flex justify-end mr-5">
+                        <div>
+                            <p class="text-center">{{appointment.doctor.full_name}}</p>
+                            <p class="text-center font-bold text-md">Signature</p>
+                        </div>
+                    </div>
+                    <hr class="my-2  text-gray-300">
+                </div>
+
+            </div>
+
+
+            <!-- Doctor inputs -->
+            <div class="flex flex-col p-4 bg-white dark:text-white rounded-lg shadow-xs dark:bg-gray-800">
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="text" hidden name="updatePrescription" value="{% if prescription %}{{prescription.id}}{%else %}0{% endif %}">
+                    <div>
+                        <div class="flex justify-between">
+                            <h1 class="text-lg mb-2">Add Medicine</h1>
+                            <button id="addRow" class="btn bg-success border-none btn-sm text-white col-span-1"
+                                style="border-radius: 0;">+</button>
+                        </div>
+                        <div id="input-container">
+                            <div id="medicine" class="grid grid-cols-8 gap-x-1 mb-1">
+                                <input type="text" name="medicineName" placeholder="name of medicine"
+                                    class="input input-sm input-bordered col-span-5" style="border-radius: 0;" required>
+                                <input type="text" name="measure" placeholder="measure to take"
+                                    class="input input-sm input-bordered col-span-2" style="border-radius: 0;">
+
+
+                            </div>
+                            <div id="newRow">
+
+                            </div>
+
+                        </div>
+
+                        <div class="flex justify-between mt-5">
+                            <h1 class="text-lg mb-2">Add Comment</h1>
+
+                        </div>
+                        <textarea class="textarea textarea-bordered w-full" name="comment" placeholder="Your comment"></textarea>
+                    </div>
+
+                    <input type="submit" class="btn btn-info btn-sm" style="border-radius: 0;" value="Save">
+
+                </form>
+            </div>
+            <div>
+                <button onclick="printPrescription()" class="btn btn-sm btn-info ">Print</button>
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+</main>
+
+{% endblock body %}
+
+
+{%block dashboardScript %}
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script>
+
+function printPrescription(){
+
+    let restorePage = document.body.innerHTML;
+    let printContent = document.getElementById("prescription").innerHTML;
+    document.body.innerHTML = printContent;
+    window.print();
+    
+    document.body.innerHTML = restorePage;
+
+}
+
+</script>
+
+<script type="text/javascript">
+    // add row
+    $("#addRow").click(function () {
+        var html = `<div id="medicine" class="grid grid-cols-8 gap-x-1 mb-1">
+                            <input type="text" name="medicineName" placeholder="name of medicine"
+                                class="input input-sm input-bordered col-span-5" style="border-radius: 0;" required>
+                            <input type="text" name="measure" placeholder="measure to take"
+                                class="input input-sm input-bordered col-span-2" style="border-radius: 0;">
+                     
+                            <button id="removeRow"
+                                class="btn bg-error border-none btn-sm text-white col-span-1"
+                                style="border-radius: 0;">X</button>
+
+                        </div>`
+
+        $('#newRow').append(html);
+    });
+
+    // remove row
+    $(document).on('click', '#removeRow', function () {
+        $(this).closest('#medicine').remove();
+    });
+</script>
+
+{%endblock dashboardScript %}

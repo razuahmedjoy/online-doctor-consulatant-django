@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/daisyui.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% block headerlinks %}
+
+    {% endblock headerlinks %}
+
+
+
+    <title>
+        {% block title %}VillageCare - Chadaha{% endblock title %}
+    </title>
+
+
+    {% block headerstyle %}
+
+    {% endblock headerstyle %}
+
+</head>
+
+<body>
+
+    {% block header %}
+
+    {% include "components/header.html" %}
+
+    {% endblock header %}
+
+    {% block body %}
+
+    {% endblock body %}
+
+
+    {% block footer %}
+
+    {% endblock footer %}
+
+
+
+    {% block footerscript %}
+
+    {% endblock footerscript %}
+
+
+</body>
+
+</html>

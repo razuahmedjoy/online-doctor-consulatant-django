@@ -1,0 +1,74 @@
+{% extends "dashboardBase.html" %}
+
+{%block dashboardtitle %}
+Doctor Profile
+{%endblock dashboardtitle %}
+
+{% block sidebar %}
+
+{% include "doctor/doctor_sidebar.html" %}
+
+{% endblock sidebar %}
+
+
+{% block body %}
+<main class="h-full overflow-y-auto">
+    <div class="container px-6 mx-auto grid">
+        <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+            Hi, {{request.user.doctor.full_name}}
+        </h2>
+        <div class="overflow-x-auto md:w-1/2 shadow-md rounded-lg">
+            <table class="table w-full shadow-md">
+
+                <tbody>
+
+                    <tr>
+
+                        <td>Name</td>
+                        <td>{{request.user.doctor.full_name}}</td>
+
+                    </tr>
+
+                    <tr class="hover">
+
+                        <td>Contact No</td>
+                        <td>{{request.user.doctor.contact_no}}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Gender</td>
+                        <td>{{request.user.doctor.gender}}</td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Designation</td>
+                        <td>{{request.user.doctor.designation}}</td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>Bio</td>
+                        <td>{{request.user.doctor.bio}}</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+        <a href="{% url 'doctor_profile_update' %}" class="btn btn-sm max-w-sm my-2">Update Profile</a>
+
+
+
+
+
+    </div>
+</main>
+
+{% endblock body %}

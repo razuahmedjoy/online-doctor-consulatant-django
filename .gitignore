@@ -1,0 +1,13 @@
+
+venv
+media
+
+db.sqlite3
+mainApp/__pycache__
+mainApp/*/__pycache__
+
+mainApp/migrations
+edoctorProject/*/__pycache__
+edoctorProject/__pycache__
+
+edoctorProject/settings_dev.py

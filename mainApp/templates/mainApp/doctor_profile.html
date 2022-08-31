@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Doctor {% endblock title %}
+
+
+
+{% block headerstyle %}
+
+{% endblock headerstyle %}
+
+{% block body %}
+<div class="main">
+
+    <div class="hero min-h-screen bg-base-200">
+        <div class="hero-content flex-col lg:flex-row-reverse">
+
+
+            <div
+                class="w-full cursor-pointer hover:-mt-4 mb-5 ease-in  duration-200 hover:shadow-2xl mx-2 lg:mx-10 shadow-md p-4 md:p-5">
+                <div class="flex flex-col justify-center items-center">
+                    <div class="rounded-full border border-info p-1 shadow-sm">
+
+                        {% if doctor.profile_pic %}
+                        <img class="w-20 rounded-full" src="{{doctor.profile_pic.url}}"
+                        alt="doctor_profile" />
+                        {%else %}
+                      
+
+                        <img class="w-20 rounded-full"
+                        src="{% static 'images/doctor.jpg' %}" alt="">
+                        {%endif %}
+                      
+                    </div>
+                    <div class="details">
+                        <h5 class="text-center font-semibold mt-2">{{doctor.full_name}}</h5>
+                        <h6 class="text-gray-500 text-center text-sm">{{doctor.designation}}</h6>
+                        <p class="text-gray-500 text-center text-xs md:text-sm p-2 md:p-4">
+                            {{doctor.bio|default_if_none:"Bio not Updated"}}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="text-center lg:text-left">
+                <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
+                    exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                <a href="{% url 'patient_submit_new_appointment' pk=doctor.id %}" class="py-1 px-2 bg-info text-white text-3xl font-bold">Make Appointment</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock body %}

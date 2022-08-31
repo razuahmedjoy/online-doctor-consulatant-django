@@ -1,0 +1,63 @@
+{% extends "dashboardBase.html" %}
+
+{%block dashboardtitle %}
+Patient Dashboard
+{%endblock dashboardtitle %}
+
+{% block sidebar %}
+
+{% include "patient/patient_sidebar.html" %}
+
+{% endblock sidebar %}
+
+
+{% block body %}
+<main class="h-full overflow-y-auto">
+    <div class="container px-6 mx-auto grid">
+        <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+            New Appointment
+        </h2>
+        <h2 class="my-5 text-lg font-semibold text-gray-700 dark:text-gray-200">
+            Choose Doctors
+        </h2>
+        <br>
+        <!-- Cards -->
+        <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+
+            {% if doctors %}
+            {% for doctor in doctors %}
+
+    
+            <a href="{% url 'patient_submit_new_appointment' pk=doctor.id %}" class="flex items-center p-4 bg-white rounded-lg shadow-xs hover:shadow-md ease-in duration-200 hover:-mt-2 dark:bg-gray-800">
+                <div class="p-4 mr-4 text-orange-500  dark:text-orange-100 dark:bg-orange-500">
+                    <div class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none">
+                        <img class="object-cover w-8 h-8 rounded-full"
+                            src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82"
+                            alt="" aria-hidden="true" />
+                    </div>
+                </div>
+                <div>
+                    <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                        {{doctor.full_name}}
+                    </p>
+                    <p class="mb-2 text-sm font-medium text-gray-500 dark:text-gray-400">
+                        {{doctor.designation}}
+                    </p>
+
+                </div>
+            </a>
+            {%endfor %}
+            {%else%}
+            <p class="text-error">No Doctor is Registered yet</p>
+            {%endif%}
+  
+        </div>
+
+
+
+
+
+    </div>
+</main>
+
+{% endblock body %}

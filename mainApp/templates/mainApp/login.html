@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} {{title}} {% endblock title %}
+
+
+{% block body %}
+
+<section>
+
+    <div class="py-5 md:py-10 px-5 md:px-24 breadcumb-bg">
+        <h1 class="bredcumb-title text-xl md:text-4xl text-white font-bold">Login</h1>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="flex flex-col justify-center items-center order-2 md:order-1">
+            <img src="{% static 'images/login.svg' %}" class="img-responsive w-3/5 text-center mt-5" alt="">
+         
+        </div>
+        <div class="login-form flex justify-center order-1 md:order-2">
+            <div class="max-w-md mx-2 md:mx-0 bg-base-100 shadow-xl border-info border my-5">
+               
+                <div class="p-5 w-full">
+                    {% if registration_done %}
+                    <p class="text-success p-2">{{registration_done}}</p>
+                    {%endif %}
+                    {% if error %}
+                    <p class="text-error p-2">{{error}}</p>
+                    {%endif %}
+
+                    <form onsubmit="loginSubmit()" id="login" method="post" autocomplete="off">
+                        {% csrf_token %}
+
+
+                        <div>
+                            <label for="contact_no">Enter Your Contact No</label>
+                            <input type="number" placeholder="Type here" name="contact_no"
+                                class="input input-bordered w-full my-2" required />
+                        </div>
+
+                        <div>
+                            <label for="password">Enter Password</label>
+                            <input type="password" placeholder="Type here" name="password"
+                                class="input input-bordered w-full my-2" required />
+                        </div>
+
+
+
+
+                        <div class="my-2">
+                            <input id="submitBtn" type="submit"
+                                class="btn w-full btn-accent hover:text-white rounded-none" value="Login">
+                        </div>
+                        <div class="text-center ">
+                            <h2 class="text-md my-2">If You Don't Have any Account
+                            </h2>
+                            <a class="badge badge-lg badge-info text-md text-white text-center shadow-md"
+                                href="{% url 'register' %}"> Create Account
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{%block footerscript %}
+
+<script>
+    function loginSubmit(e) {
+
+        document.getElementById("submitBtn").disabled = true;
+
+    }
+</script>
+{%endblock footerscript %}
+
+{%endblock %}
