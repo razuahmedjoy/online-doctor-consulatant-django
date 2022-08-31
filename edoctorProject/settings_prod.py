@@ -83,22 +83,6 @@ WSGI_APPLICATION = 'edoctorProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'mysql.connector.django',
-#         'OPTIONS': {
-#             'sql_mode': 'traditional',
-     
-#         },
-#         'NAME': os.environ.get('DB_NAME'),
-#         'USER': os.environ.get('DB_USER'),
-#         'PASSWORD': os.environ.get('DB_PASS'),
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-        
-#     }
-# }
-
 
 DATABASES = {
     'default': {
@@ -153,10 +137,10 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = "static/"
+STATIC_ROOT = "/home/chadahac/villagecare.chadaha.com/static/"
 
 MEDIA_URL = 'media/'
-MEDIA_ROOT = "media/"
+MEDIA_ROOT = "/home/chadahac/villagecare.chadaha.com/media/"
 
 STATICFILES_DIRS = [
     'mainApp/static'
