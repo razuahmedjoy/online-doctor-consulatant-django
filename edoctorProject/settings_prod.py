@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     "crispy_forms",
     "crispy_tailwind",
+    "ckeditor"
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
