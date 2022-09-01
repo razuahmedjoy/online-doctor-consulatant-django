@@ -5,7 +5,7 @@ media
 db.sqlite3
 mainApp/__pycache__
 mainApp/*/__pycache__
-static
+/static
 
 mainApp/migrations
 edoctorProject/*/__pycache__
