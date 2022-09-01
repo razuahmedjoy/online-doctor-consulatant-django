@@ -12,6 +12,7 @@ def home(request):
     context['testimonials'] = testimonials
     context['faqs'] = faqs
     context['clients'] = clients
+    
 
 
     return render(request, 'mainApp/home.html',context)

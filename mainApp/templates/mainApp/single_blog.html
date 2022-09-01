@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} {{single_blog.title}} {% endblock title %}
+
+
+
+{% block headerstyle %}
+<style>
+    .breadcumb-bg{
+        background-image: url('{{single_blog.cover_photo.url}}');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position:center;
+        background-blend-mode:darken;
+       
+    }
+</style>
+{% endblock headerstyle %}
+
+{% block body %}
+<div class="main">
+    <div class="py-5 md:py-40 px-5 md:px-24 breadcumb-bg">
+        <h1 class="bredcumb-title text-xl md:text-4xl text-white font-bold">{{single_blog.title}}</h1>
+       
+    </div>
+    <div class="min-h-screen bg-blue-50">
+        <div class="container px-2 md:px-12 lg:px-18">
+           
+            <div class="">
+                
+
+                <div class="p-2">
+                    <div class="card-body bg-white">
+                        <h2 class="card-title">{{single_blog.title}}</h2>
+                        <p>{{single_blog.description|safe}}</p>
+                      
+                    </div>
+
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock body %}

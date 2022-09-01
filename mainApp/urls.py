@@ -11,6 +11,13 @@ urlpatterns = [
     path('profile/<int:pk>', doctor_public_profile, name='doctor_public_profile'),
 
 
+    path('all_blog/', all_blog, name='all_blog'),
+    path('single_blog/<int:id>', single_blog, name='single_blog'),
+
+    # gallery
+    path('gallery/', all_gallery, name='all_gallery'),
+
+
 
     # patient dashboard
     path('patient/dashboard', patient_dashboard, name='patient_dashboard'),

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Gallery {% endblock title %}
+
+
+{% block headerlinks %}
+<script src="{% static 'js/spotlight.bundle.js' %}"></script>
+{% endblock headerlinks %}
+{% block headerstyle %}
+
+{% endblock headerstyle %}
+
+{% block body %}
+<div class="main">
+
+    <div class="min-h-screen bg-blue-50">
+        <div class="container px-2 md:px-12 lg:px-18 mx-auto">
+            <div class="section-title">
+                <h1 class="text-center text-xl md:text-4xl font-semibold pt-5 mb-16">গ্যালারি</h1>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {% for item in gallery %}
+
+                <div class="bg-white shadow p-2">
+                    <a class="spotlight" href="{{item.image.url}}">
+                        <img class="w-full h-[280px] object-cover" src="{{item.image.url}}" alt="gallery" />
+                    </a>
+                    <div class="card-body">
+                        <h2 class="card-title">{{item.caption}}</h2>
+                     
+               
+                    </div>
+
+                </div>
+                {%endfor%}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock body %}
