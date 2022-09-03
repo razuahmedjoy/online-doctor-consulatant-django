@@ -70,6 +70,7 @@ class Appointment(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     status = models.CharField(max_length=20,choices=STATUS,default="Pending")
     description = models.TextField(max_length=500,null=True, blank=True)
+    appointment_date = models.DateField(null=True, blank=True) 
     created_at = models.DateTimeField(auto_now_add=True)
 
 

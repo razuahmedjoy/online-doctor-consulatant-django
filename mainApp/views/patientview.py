@@ -44,11 +44,13 @@ def patient_submit_new_appointment(request,pk):
         doctorid = request.POST.get("doctor")
         patientid = request.POST.get("patient")
         description = request.POST.get("description")
+        appointment_date = request.POST.get("date")
+        print(appointment_date)
         doctor = Doctor.objects.get(pk=doctorid)
         patient = Patient.objects.get(pk=patientid)
 
         # create appointment
-        appointment = Appointment(patient=patient,doctor=doctor, description=description)
+        appointment = Appointment(patient=patient,doctor=doctor, description=description,appointment_date=appointment_date)
         appointment.save()
 
         return redirect('patient_dashboard')

@@ -4,3 +4,6 @@ from .faq import *
 from .clients import *
 from .blogs import *
 from .gallery import *
+from .slider import *
+from .counter import *
+from .web_setting import *

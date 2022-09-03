@@ -5,5 +5,5 @@ from mainApp.models import *
 class doctorProfileForm(ModelForm):
     class Meta:
         model=Doctor
-        fields = ['designation','bio','profile_pic']
+        fields = ['designation','fees','bio','profile_pic']
         

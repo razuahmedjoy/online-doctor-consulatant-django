@@ -85,7 +85,8 @@ Patient Dashboard
                         <tr
                             class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                             <th class="px-4 py-3">Doctor</th>
-                            <th class="px-4 py-3">Date</th>
+                            <th class="px-4 py-3">Created Date</th>
+                            <th class="px-4 py-3">Appointment Date</th>
                             <th class="px-4 py-3">Status</th>
                             <th class="px-4 py-3">Prescription</th>
                         
@@ -102,7 +103,7 @@ Patient Dashboard
                                     <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
                                         {% if a.doctor.profile_pic %}
                                         <img class="object-cover w-full h-full rounded-full"
-                                        src="{{doctor.profile_pic.url}}"
+                                        src="{{a.doctor.profile_pic.url}}"
                                         alt="" loading="lazy" />
                                         {%else %}
                                         <img class="object-cover w-full h-full rounded-full"
@@ -123,6 +124,9 @@ Patient Dashboard
                             </td>
                             <td class="px-4 py-3 text-sm">
                                 {{a.created_at}}
+                            </td>
+                            <td class="px-4 py-3 text-sm">
+                                {{a.appointment_date}}
                             </td>
                             <td class="px-4 py-3 text-xs">
                                 <span
