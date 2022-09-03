@@ -48,15 +48,15 @@
     <section class="hero-banner-area">
 
         <div class="hero-sliders overflow-hidden">
+            {% for slide in sliders %}
             <div class="w-full h-fit py-20 md:py-48 text-white flex justify-center text-xl slides relative"
-                style="background-image: url('{% static 'images/slider/banner1.png' %}');">
+                style="background-image: url('{{slide.image.url}}');">
 
                 <div class="overlay absolute w-full h-full  top-0 left-0"></div>
                 <div class="text-white md:w-[60%] h-full relative pl-5 md:pl-36 ">
-                    <h4 class="text-sm md:text-base">Best Care, Best Services</h4>
-                    <h1 class="text-xl md:text-5xl font-bold my-2">Meet with Your Doctors</h1>
-                    <p class="text-xs md:text-sm font-thin">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                        Qui asperiores maiores veniam accusamus beatae.</p>
+                    <h4 class="text-sm md:text-base">{{slide.title}}</h4>
+                    <h1 class="text-xl md:text-5xl font-bold my-2">{{slide.caption}}</h1>
+                    <p class="text-xs md:text-sm font-thin">{{slide.description}}</p>
                     <div class="flex gap-x-2">
                         <button class="btn btn-sm md:btn-md rounded-full btn-info text-white mt-4">Make
                             Appointment</button>
@@ -66,7 +66,9 @@
                 </div>
 
             </div>
-            <div class="w-full h-fit py-20 md:py-48 text-white flex justify-center text-xl slides relative"
+
+            {%endfor %}
+            <!-- <div class="w-full h-fit py-20 md:py-48 text-white flex justify-center text-xl slides relative"
                 style="background-image: url('{% static 'images/slider/banner2.png' %}');">
 
                 <div class="overlay absolute w-full h-full  top-0 left-0"></div>
@@ -83,7 +85,7 @@
 
                 </div>
 
-            </div>
+            </div> -->
 
 
         </div>
@@ -475,20 +477,13 @@
             <div class="flex justify-center">
                 <div class="flex flex-col md:flex-row">
 
-                    <div class="stat place-items-center">
-                        <div class="stat-value">31000</div>
-                        <div class="stat-title">Downloads</div>
-                    </div>
+                   {% for counter in counters %}
+                   <div class="stat place-items-center">
+                    <div class="stat-value">{{counter.count}}</div>
+                    <div class="stat-title capitalize">{{counter.title}}</div>
+                </div>
+                   {%endfor%}
 
-                    <div class="stat place-items-center">
-                        <div class="stat-value text-secondary">4,200</div>
-                        <div class="stat-title">Users</div>
-                    </div>
-
-                    <div class="stat place-items-center">
-                        <div class="stat-value">1,200</div>
-                        <div class="stat-title">New Registers</div>
-                    </div>
 
                 </div>
             </div>

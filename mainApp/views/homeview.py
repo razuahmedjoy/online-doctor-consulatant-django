@@ -7,11 +7,15 @@ def home(request):
     testimonials = Testimonial.objects.all()
     faqs = Faq.objects.all()
     clients = Clients.objects.all()
+    sliders = Slider.objects.all()
+    counters = Counter.objects.all()
 
     context['doctors'] = doctors
     context['testimonials'] = testimonials
     context['faqs'] = faqs
     context['clients'] = clients
+    context['sliders'] = sliders
+    context['counters'] = counters
     
 
 

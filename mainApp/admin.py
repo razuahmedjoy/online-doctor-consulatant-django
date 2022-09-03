@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from mainApp.models.users import Prescription
 
-from .models import Patient,Doctor,Appointment,Faq,Testimonial,Clients,Blog,Gallery
+from .models import *
 # Register your models here.
 admin.site.register(Patient)
 admin.site.register(Doctor)
@@ -11,6 +11,9 @@ admin.site.register(Testimonial)
 admin.site.register(Faq)
 admin.site.register(Clients)
 admin.site.register(Gallery)
+
+admin.site.register(Slider)
+admin.site.register(Counter)
 
 admin.site.register(Blog)
 
