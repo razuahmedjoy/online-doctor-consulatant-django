@@ -3,6 +3,7 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.decorators import login_required,user_passes_test
 from mainApp.models import *
 from .checkuserrole import *
+from .forms import patientProfileForm
 import json 
 @login_required(login_url="/login/")
 @user_passes_test(is_patient,login_url="/")
@@ -23,6 +24,27 @@ def patient_dashboard(request):
 
     return render(request,"patient/dashboard.html",context)
 
+
+
+@login_required(login_url="/login/")
+@user_passes_test(is_patient,login_url="/")
+def patient_profile_update(request):
+
+    context = {}
+    patient = get_patient(request.user)
+
+    form = patientProfileForm(instance=patient)
+
+    if request.method == "POST":
+        formData = patientProfileForm(request.POST,request.FILES,instance=patient)
+        if formData.is_valid():
+            formData.save()
+            return redirect('patient_profile')
+
+
+    context["form"] = form
+
+    return render(request,"doctor/update_profile.html",context)
 
 
 @login_required(login_url="/login/")

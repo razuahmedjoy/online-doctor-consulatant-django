@@ -12,10 +12,27 @@ class Patient(models.Model):
         ('Female', 'Female'),
 
     )
+    BLOOD = (
+        ('A+', 'A+'),
+        ('A-', 'A-'),
+        ('B+', 'B+'),
+        ('B-', 'B-'),
+        ('O+', 'O+'),
+        ('O-', 'O-'),
+        ('AB+', 'AB+'),
+        ('AB-', 'AB-'),
+    )
     user = models.OneToOneField(User,on_delete=models.CASCADE)
 
     full_name = models.CharField(max_length=255)
     contact_no = models.CharField(max_length=15,unique=True)
+    father_name = models.CharField(max_length=20,null=True, blank=True)
+    permanent_address = models.CharField(max_length=255,null=True,blank=True)
+    ward = models.CharField(max_length=20,null=True,blank=True)
+    age = models.IntegerField(null=True, blank=True)
+    blood_group = models.CharField(max_length=20,choices=BLOOD,default=None,null=True, blank=True)
+    nid = models.CharField(max_length=20,null=True, blank=True)
+
     gender = models.CharField(max_length=10,choices=GENDER, default="Male")
     role = models.CharField(max_length=10,choices=ROLE,default="patient")
     

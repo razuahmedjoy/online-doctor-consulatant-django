@@ -401,7 +401,7 @@
     <!-- FAQ -->
     <section class="py-10 bg-blue-50">
         <div class="section-title">
-            <h1 class="text-center text-xl md:text-4xl font-semibold mt-2 mb-16">এফএকিউ</h1>
+            <h1 class="text-center text-xl md:text-4xl font-semibold mt-2 mb-16">সচরাচর প্রশ্নোত্তর</h1>
         </div>
         <div class="container mx-auto px-5 md:px-12 lg:px-24 xl:px-32">
 
@@ -434,7 +434,7 @@
     <!-- Testimonial -->
     <section class="py-10 bg-base-100">
         <div class="section-title">
-            <h1 class="text-center text-xl md:text-4xl font-semibold mt-2 mb-16">প্রশংসা</h1>
+            <h1 class="text-center text-xl md:text-4xl font-semibold mt-2 mb-16">রিভিউ</h1>
         </div>
         <div class="container mx-auto px-5 md:px-10 lg:px-20 xl:px-32">
 
@@ -477,12 +477,15 @@
             <div class="flex justify-center">
                 <div class="grid grid-cols-2 md:grid-cols-5">
 
-                   {% for counter in counters %}
-                   <div class="stat place-items-center">
-                    <div class="stat-value">{{counter.count}}</div>
-                    <div class="stat-title capitalize">{{counter.title}}</div>
-                </div>
-                   {%endfor%}
+                    {% for counter in counters %}
+                    <div class="stat place-items-center gap-y-2">
+                        {% if counter.image %}
+                        <img class="w-12 h-12 rounded-full" src="{{counter.image.url}}" alt="">
+                        {%endif%}
+                        <div class="stat-value">{{counter.count}}</div>
+                        <div class="stat-title capitalize">{{counter.title}}</div>
+                    </div>
+                    {%endfor%}
 
 
                 </div>
@@ -501,7 +504,7 @@
             <div class="grid grid-cols-2 md:flex justify-center gap-2">
                 <a href="#" class="btn btn-sm btn-error" style="border-radius:0;">জরুরি রক্ত</a>
                 <a href="#" class="btn btn-sm btn-info" style="border-radius:0;">জরুরি ফোন নাম্বার</a>
-                <a href="#" class="btn btn-sm btn-accent" style="border-radius:0;">হেলথ টিম</a>
+                <a href="{% url 'health_team' %}" class="btn btn-sm btn-accent" style="border-radius:0;">হেলথ টিম</a>
                 <a href="#" class="btn btn-sm btn-warning" style="border-radius:0;">মেডিসিন ব্যাংক</a>
             </div>
         </div>
@@ -523,14 +526,16 @@
                 <div
                     class="w-1/3 cursor-pointer hover:-mt-4 mb-5 ease-in  duration-200 hover:shadow-2xl mx-2 lg:mx-10 shadow-md p-4 md:p-5 min-h-[100px]">
                     <div class="flex flex-col justify-center items-center">
-                        <div class="rounded-full border border-info p-1 shadow-sm">
-                            <img class="w-20 rounded-full" src="{{client.logo.url}}" alt="">
-                        </div>
-                        <div class="details">
+                        <a href="{{client.url|default_if_none:'#'}}">
+                            <div class="rounded-full border border-info p-1 shadow-sm">
+                                <img class="w-20 rounded-full" src="{{client.logo.url}}" alt="">
+                            </div>
+                            <div class="details">
 
-                            <h5 class="text-center font-semibold">{{client.name}}</h5>
+                                <h5 class="text-center font-semibold">{{client.name}}</h5>
 
-                        </div>
+                            </div>
+                        </a>
 
                     </div>
 
@@ -555,9 +560,6 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script>
-    feather.replace()
-</script>
 
 <script>
 

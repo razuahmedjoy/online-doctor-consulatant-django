@@ -1,23 +1,18 @@
 {% extends "dashboardBase.html" %}
 {% load tailwind_filters %}
 {%block dashboardtitle %}
-Doctor Profile
+Update Profile
 {%endblock dashboardtitle %}
 
-{% block sidebar %}
-
-{% include "doctor/doctor_sidebar.html" %}
-
-{% endblock sidebar %}
 
 
 {% block body %}
 <main class="h-full overflow-y-auto">
     <div class="container px-6 mx-auto grid">
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-            Hi, {{request.user.doctor.full_name}}, Update your profile
+            Hi, {{request.user.first_name}}, Update your profile
         </h2>
-        <div class="overflow-x-auto md:w-1/2 shadow-md rounded-lg">
+        <div class="overflow-x-auto md:w-1/2 shadow-md rounded-lg mx-auto mb-10">
             <form class="form form-control p-4" method="post" enctype='multipart/form-data'>
                 {%csrf_token %}
                 {{ form|crispy }}

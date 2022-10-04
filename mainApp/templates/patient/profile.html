@@ -18,34 +18,61 @@ Patient Profile
             Hi, {{request.user.patient.full_name}}
         </h2>
         <div class="overflow-x-auto md:w-1/2 shadow-md rounded-lg">
-            <table class="table w-full shadow-md">
-     
+            <table class="table w-full shadow-md table-compact">
+
                 <tbody>
-            
+
                     <tr>
-                
+
                         <td>Name</td>
                         <td>{{request.user.patient.full_name}}</td>
-                     
+
                     </tr>
-             
+
                     <tr class="hover">
-           
+
                         <td>Contact No</td>
                         <td>{{request.user.patient.contact_no}}</td>
-                     
+
                     </tr>
-         
+
                     <tr>
-   
+
                         <td>Gender</td>
                         <td>{{request.user.patient.gender}}</td>
-                      
+
                     </tr>
-                  
+                    <tr>
+
+                        <td>Father Name</td>
+                        <td>{{request.user.patient.father_name}}</td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Address</td>
+                        <td>{{request.user.patient.permanent_address}}</td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Blood Group</td>
+                        <td>{{request.user.patient.blood_group}}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>National ID</td>
+                        <td>{{request.user.patient.nid}}</td>
+
+                    </tr>
+
                 </tbody>
             </table>
+
         </div>
+        <a href="{% url 'patient_profile_update' %}" class="btn btn-sm max-w-sm my-2">Update Profile</a>
 
 
 

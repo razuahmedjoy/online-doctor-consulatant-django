@@ -17,11 +17,18 @@ urlpatterns = [
     # gallery
     path('gallery/', all_gallery, name='all_gallery'),
 
+    # medicine bank
+    path('medicine_bank/', medicine_bank, name='medicine_bank'),
+
+    # medicine bank
+    path('health_team/', health_team, name='health_team'),
+
 
 
     # patient dashboard
     path('patient/dashboard', patient_dashboard, name='patient_dashboard'),
     path('patient/profile', patient_profile, name='patient_profile'),
+    path('patient/profile/update', patient_profile_update, name='patient_profile_update'),
     path('patient/new_appointment', patient_new_appointment, name='patient_new_appointment'),
     path('patient/new_appointment/<int:pk>', patient_submit_new_appointment, name='patient_submit_new_appointment'),
     path('patient/appointment_details/<int:pk>', patient_appointment_details, name='patient_appointment_details'),

@@ -12,20 +12,20 @@
 <div class="main">
 
     <div class="min-h-screen bg-blue-50">
-        <div class="container px-2 md:px-12 lg:px-18">
+        <div class="container px-2 md:px-12 lg:px-18 mx-auto">
             <div class="section-title">
                 <h1 class="text-center text-xl md:text-4xl font-semibold pt-5 mb-16">সকল ব্লগ</h1>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {% for blog in blogs %}
 
                 <div class="bg-white shadow rounded-lg p-2">
-                    <figure><img class="w-full h-[180px] object-cover" src="{{blog.cover_photo.url}}" alt="Shoes" /></figure>
+                    <figure><img class="w-full h-[90px] md:h-[180px] object-cover" src="{{blog.cover_photo.url}}" alt="Shoes" /></figure>
                     <div class="p-2">
                         <h2 class="card-title text-center">{{blog.title}}</h2>
                      
                         <div class="card-actions justify-end">
-                            <a href="{% url 'single_blog' id=blog.id %}" class="btn btn-info btn-sm text-white">Read more</a>
+                            <a href="{% url 'single_blog' id=blog.id %}" class="btn btn-info btn-xs md:btn-sm text-white">Read more</a>
                         </div>
                     </div>
 

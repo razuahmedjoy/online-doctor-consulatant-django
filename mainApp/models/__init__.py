@@ -7,3 +7,4 @@ from .gallery import *
 from .slider import *
 from .counter import *
 from .web_setting import *
+from .healthteam import *
