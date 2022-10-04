@@ -31,7 +31,7 @@ def patient_new_appointment(request):
     context = {}
     doctors = Doctor.objects.all()
     context["doctors"] = doctors
-    print(doctors)
+    # print(doctors)
     
     return render(request,"patient/new_appointment.html",context)
 
