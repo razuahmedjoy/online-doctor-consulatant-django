@@ -5,7 +5,7 @@ from mainApp.models.users import Prescription
 from .models import *
 # Register your models here.
 admin.site.register(Patient)
-admin.site.register(Doctor)
+
 admin.site.register(Appointment)
 admin.site.register(Testimonial)
 admin.site.register(Faq)
@@ -22,3 +22,10 @@ class PrescriptionAdmin(admin.ModelAdmin):
     readonly_fields = ('appointment',)
 admin.site.register(Prescription,PrescriptionAdmin)
 
+
+class DoctorAdmin(admin.ModelAdmin):
+    list_display= ['__str__','contact_no','designation','active','role','type','fees']
+    list_filter = ['type']
+    list_editable = ['type','fees']
+
+admin.site.register(Doctor,DoctorAdmin)

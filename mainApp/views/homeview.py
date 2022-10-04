@@ -10,7 +10,14 @@ def home(request):
     sliders = Slider.objects.all()
     counters = Counter.objects.all()
 
-    context['doctors'] = doctors
+    consultants = doctors.filter(type='Consultant')
+    telemedicine = doctors.filter(type='Telemedicine')
+    ruralDoctors = doctors.filter(type='Rural')
+
+    context['consultants'] = consultants
+    context['telemedicine'] = telemedicine
+    context['ruralDoctors'] = ruralDoctors
+    
     context['testimonials'] = testimonials
     context['faqs'] = faqs
     context['clients'] = clients

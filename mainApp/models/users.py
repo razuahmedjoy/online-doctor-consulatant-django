@@ -52,6 +52,7 @@ class Doctor(models.Model):
     facebook = models.CharField(max_length=200,null=True,blank=True)
     whatsapp = models.CharField(max_length=200,null=True,blank=True)
     fees = models.IntegerField(null=True,blank=True)
+    chamber = models.CharField(max_length=200,null=True,blank=True)
 
     def __str__(self):
         return self.full_name
