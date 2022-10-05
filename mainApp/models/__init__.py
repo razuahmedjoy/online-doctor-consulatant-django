@@ -8,3 +8,5 @@ from .slider import *
 from .counter import *
 from .web_setting import *
 from .healthteam import *
+from .village_care import *
+from .web_setting import *

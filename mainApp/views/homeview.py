@@ -9,6 +9,11 @@ def home(request):
     clients = Clients.objects.all()
     sliders = Slider.objects.all()
     counters = Counter.objects.all()
+    web_setting = Web_Settings.objects.last()
+    village_care_centers = Village_Care_Center.objects.all()
+
+
+
 
     consultants = doctors.filter(type='Consultant')
     telemedicine = doctors.filter(type='Telemedicine')
@@ -23,7 +28,9 @@ def home(request):
     context['clients'] = clients
     context['sliders'] = sliders
     context['counters'] = counters
-    
+    context['web_setting'] = web_setting
+    context['village_care_centers'] = village_care_centers
+  
 
 
     return render(request, 'mainApp/home.html',context)

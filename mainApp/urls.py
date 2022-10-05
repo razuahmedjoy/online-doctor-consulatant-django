@@ -23,6 +23,10 @@ urlpatterns = [
     # medicine bank
     path('health_team/', health_team, name='health_team'),
 
+    # village care
+    path('village_care/<int:pk>', single_village_care, name='single_village_care'),
+
+
 
 
     # patient dashboard

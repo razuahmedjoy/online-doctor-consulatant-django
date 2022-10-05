@@ -6,3 +6,4 @@ from .blogview import *
 from .galleryview import *
 from .medicinebank import *
 from .healthteamview import *
+from .villagecareview import *

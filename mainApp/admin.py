@@ -12,6 +12,8 @@ admin.site.register(Faq)
 admin.site.register(Clients)
 admin.site.register(Gallery)
 admin.site.register(HealthTeam)
+admin.site.register(Village_Care_Center)
+admin.site.register(Web_Settings)
 
 admin.site.register(Slider)
 admin.site.register(Counter)
