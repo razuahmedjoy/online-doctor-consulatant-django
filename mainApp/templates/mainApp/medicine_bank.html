@@ -14,14 +14,16 @@
     <div class="min-h-screen bg-blue-50">
         <div class="container px-2 md:px-12 lg:px-18 mx-auto">
             <div class="section-title">
-                <h1 class="text-center text-xl md:text-4xl font-semibold pt-5 mb-16">মেডিসিন ব্যাংক</h1>
+                <h1 class="text-center text-xl md:text-4xl font-semibold pt-5 mb-5 md:mb-16">মেডিসিন ব্যাংক</h1>
+                <h1 id="textContainer" class="text-center text-lg md:text-2xl font-semibold pt-5 mb-5"></h1>
+                
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                 <div class="p-2" align="center">
                     <img src="{% static 'images/medicine_bank.png' %}" alt="medicine_bank" class="w-full">
 
                 </div>
-                <div class="p-2" align="center">
+                <div class="p-2">
                     <p>
                         {{web_setting.medicine_bank_text.html|safe}}
                     </p>
@@ -34,3 +36,24 @@
 
 
 {% endblock body %}
+
+{% block footerscript %}
+<script src="{% static 'js/typeit.min.js' %}"></script>
+
+<script>
+
+
+    const type = new TypeIt('#textContainer', {
+
+        strings: ["শীঘ্রই উদ্বোধন"],
+        breakLines: false,
+        loop: true,
+
+
+    });
+    type.go();
+
+
+</script>
+
+{% endblock footerscript %}

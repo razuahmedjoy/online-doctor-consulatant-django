@@ -9,6 +9,7 @@ class HealthTeam(models.Model):
     )
 
     full_name = models.CharField(max_length=255)
+    designation = models.CharField(max_length=255,null=True,blank=True)
     contact_no = models.CharField(max_length=15,unique=True)
     gender = models.CharField(max_length=10,choices=GENDER, default="Male")
     

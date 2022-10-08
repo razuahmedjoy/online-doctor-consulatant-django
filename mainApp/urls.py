@@ -22,6 +22,7 @@ urlpatterns = [
 
     # medicine bank
     path('health_team/', health_team, name='health_team'),
+    path('health_team_profile/<int:pk>', health_team_profile, name='health_team_profile'),
 
     # village care
     path('village_care/<int:pk>', single_village_care, name='single_village_care'),
