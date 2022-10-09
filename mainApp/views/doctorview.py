@@ -5,6 +5,9 @@ from .checkuserrole import *
 from .forms import doctorProfileForm
 import json
 
+
+
+
 @login_required(login_url="/login/")
 @user_passes_test(is_doctor,login_url="/")
 def doctor_dashboard(request):

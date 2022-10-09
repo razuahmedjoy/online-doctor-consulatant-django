@@ -21,26 +21,66 @@
                     <div class="border border-info p-2">
 
                         {% if doctor.profile_pic %}
-                        <img class="w-full p-2" src="{{doctor.profile_pic.url}}"
-                        alt="doctor_profile" />
+                        <img class="w-full p-2" src="{{doctor.profile_pic.url}}" alt="doctor_profile" />
                         {%else %}
-                      
 
-                        <img class="w-full p-2"
-                        src="{% static 'images/doctor.jpg' %}" alt="">
+
+                        <img class="w-full p-2" src="{% static 'images/doctor.jpg' %}" alt="">
                         {%endif %}
-                      
+
                     </div>
-                 
+
 
                 </div>
 
             </div>
             <div class="w-full md:w-1/2 text-center lg:text-left">
-                <span class="text-lg bg-info text-white py-1 px-3 rounded-none font-semibold">{{doctor.designation}}</span>
-                <h1 class="text-2xl md:text-4xl lg:text-6xl font-bold mt-2">{{doctor.full_name}}</h1>
-                <p class="py-6">{{doctor.bio}}</p>
-                <a href="{% url 'patient_submit_new_appointment' pk=doctor.id %}" class="py-1 px-2 bg-info text-white text-3xl font-bold">Make Appointment</a>
+                <h1 class="text-2xl md:text-4xl lg:text-6xl font-bold mb-2">{{doctor.full_name}}</h1>
+                <span
+                    class="text-lg bg-info text-white py-1 px-3 rounded-none font-semibold ">{{doctor.designation}}</span>
+                <p class="py-4 text-justify">{{doctor.bio}}</p>
+
+                <div class="py-4 flex flex-col gap-y-2 mb-5">
+                    <div class="text-lg flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-xl"></i>
+                        <span>
+                            {{doctor.contact_no}}
+                        </span>
+                    </div>
+                    <div class="text-lg flex items-center gap-2">
+                        <i class="fa-solid fa-house-chimney-medical text-xl"></i>
+                        <span>
+                            {{doctor.chamber}}
+                        </span>
+                    </div>
+
+                    <div class="text-lg flex items-center gap-2">
+
+                        <i class="fa-solid fa-comment-dollar text-xl"></i>
+                        <span>
+                            {{doctor.fees|default_if_none:'0'}} BDT.
+                        </span>
+                    </div>
+
+                    <div class="text-lg flex items-center gap-2">
+
+                        <i class="fa-brands fa-facebook text-xl"></i>
+                        <a href="{{doctor.facebook|default_if_none:'#'}}">
+                            {{doctor.full_name}}
+                        </a>
+                    </div>
+                    <div class="text-lg flex items-center gap-2">
+
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <a href="tel:{{doctor.whatsapp|default_if_none:'#'}}">
+                            {{doctor.whatsapp|default_if_none:''}}
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <a href="{% url 'patient_submit_new_appointment' pk=doctor.id %}"
+                        class="py-1 px-2 bg-info text-white text-3xl font-bold">Make Appointment</a>
+                </div>
             </div>
 
         </div>

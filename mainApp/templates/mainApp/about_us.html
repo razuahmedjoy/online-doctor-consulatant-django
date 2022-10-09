@@ -1,0 +1,188 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %} আমাদের সম্পর্কে  {% endblock title %} 
+{% block headerstyle %}
+<style>
+  .breadcumb-bg {
+    background-color: #3abff8;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+  }
+  ol,
+  ul {
+    list-style: auto !important;
+  }
+</style>
+{% endblock headerstyle %} 
+
+{% block body %}
+<div class="main">
+  <div class="py-5 md:py-12 px-5 md:px-24 breadcumb-bg">
+    <h1
+      class="bredcumb-title text-3xl md:text-5xl text-white font-bold text-center"
+    >
+      আমাদের সম্পর্কে
+    </h1>
+  </div>
+  <section class="bg-blue-50 py-12">
+    <div class="container mx-auto px-2 md:px-12 lg:px-18">
+      <div
+        class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center justify-center"
+      >
+        <div class="p-2 md:col-span-3">
+          <div class="py-2">
+            <span
+              class="font-medium text-xl md:text-2xl mb-4 border-b border-b-4 border-info inline"
+              >{{about.about_top_title}}</span
+            >
+
+            <h2 class="font-medium text-4xl md:text-5xl my-4">
+              {{about.about_title}}
+            </h2>
+            <h2 class="text-justify">{{about.about_text.html|safe}}</h2>
+          </div>
+        </div>
+        <div class="p-2 md:col-span-2" align="center">
+          {% if about.about_image %}
+          <img
+            class="w-full max-h-[450px] p-2 object-contain"
+            src="{{about.about_image.url}}"
+            alt="about"
+          />
+
+          {%else %}
+          <img
+            class="w-full max-h-[450px] p-2 object-contain"
+            src="https://medicate.peacefulqode.com/wp-content/uploads/2022/03/from-img-png-2.png"
+            alt=""
+          />
+          {%endif%}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bg-blue-50 py-12">
+    <div class="container mx-auto px-2 md:px-12 lg:px-32">
+      <h1 class="text-center text-3xl md:text-5xl font-semibold mt-2 mb-8">
+        আমাদের টিম
+      </h1>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 items-center justify-center"
+      >
+        {% for member in about_team %}
+        <div class="border bg-white border-info m-2 md:m-4 relative box">
+          <div class="image peer">
+            <img
+              class="object-contain w-full"
+              src="{{member.profile_pic.url}}"
+              alt="{{member.name}}"
+            />
+          </div>
+          <div
+            class="py-3 px-2 absolute bg-white w-3/4 -bottom-10 left-1/2 -translate-x-1/2 shadow peer-hover:bg-accent hover:bg-info hover:text-white duration-300 ease-in"
+          >
+            <h3 class="text-sm md:text-lg font-semibold text-center">
+              {{member.name}}
+            </h3>
+            <span class="block text-center text-xs font-thin"
+              >{{member.designation}}</span
+            >
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-blue-50 py-12">
+    <div class="container mx-auto px-2 md:px-12 lg:px-18">
+      <div class="grid grid-cols-1 items-center justify-center">
+        <div class="p-2">
+          <div class="py-2">
+            {% if about.mission.html %}
+            <h2 class="text-justify">{{about.mission.html|safe}}</h2>
+            {%else%}
+            <h2 class="text-justify">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae,
+              beatae numquam? Perferendis explicabo dolor illum in reprehenderit
+              dolorem velit officia minima, iure minus. Explicabo qui enim,
+              repellat itaque, magnam ducimus doloremque amet, quibusdam nisi
+              eaque quis. Dolorum reiciendis quaerat modi? Ratione eos sed
+              incidunt recusandae, qui deserunt saepe odit magni, quasi possimus
+              officiis alias ea animi fugiat. Nulla, velit nihil quas magnam
+              accusantium dicta vel facere quae minus a ex ab, quam amet tenetur
+              totam? Suscipit dolores ut molestiae neque obcaecati deserunt amet
+              voluptatibus ad adipisci culpa excepturi possimus eveniet ea,
+              ducimus eligendi sunt veniam quibusdam soluta aliquid numquam
+              rerum illum? Quisquam sit incidunt ducimus autem necessitatibus
+              perferendis, ullam repudiandae earum, eos at, amet velit officiis
+              esse temporibus commodi harum error laboriosam non aspernatur
+              illo. Expedita veritatis explicabo debitis sed dolorum tenetur,
+              non eius obcaecati fuga quasi cumque placeat rerum cum cupiditate
+              ea vero quibusdam dolores deleniti doloribus aspernatur corrupti
+              aliquam natus? Consequatur harum non vitae itaque amet, ipsam,
+              rerum praesentium dolor laborum nulla blanditiis error sapiente,
+              quam fuga libero eum facilis. Possimus praesentium mollitia labore
+              cum maiores repudiandae quaerat voluptate modi esse omnis, aliquid
+              doloremque neque officia molestias odio blanditiis qui earum
+              corporis facere harum. Ducimus unde ratione facere.
+            </h2>
+            {%endif%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bg-blue-50 py-12">
+    <div class="container mx-auto px-2 md:px-12 lg:px-28">
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center justify-center">
+        <div class="p-2 flex gap-4">
+          <div
+            class="rounded-full text-white p-6 w-16 h-16 flex items-center justify-center bg-gradient-to-r from-info to-accent"
+          >
+            <i class="fa-solid fa-location-dot text-xl"></i>
+          </div>
+         <div>
+            <h2 class="text-xl font-bold">Office Address</h2>
+            
+            <p>
+                {{about.address}}
+            </p>
+         </div>
+        </div>
+        <div class="p-2 flex gap-4">
+          <div
+            class="rounded-full text-white p-6 w-16 h-16 flex items-center justify-center bg-gradient-to-r from-info to-accent"
+          >
+            <i class="fa-solid fa-phone text-xl"></i>
+          </div>
+         <div>
+            <h2 class="text-xl font-bold">Call For Help</h2>
+            
+            <p>
+                {{about.phone_numer}}
+            </p>
+         </div>
+        </div>
+        <div class="p-2 flex gap-4">
+          <div
+            class="rounded-full text-white p-6 w-16 h-16 flex items-center justify-center bg-gradient-to-r from-info to-accent"
+          >
+            <i class="fa-solid fa-envelope text-xl"></i>
+          </div>
+         <div>
+            <h2 class="text-xl font-bold">Mail For Information</h2>
+            
+            <p>{{about.email}}</p>
+         </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% endblock body %}

@@ -9,7 +9,9 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('register/', register, name='register'),
     path('profile/<int:pk>', doctor_public_profile, name='doctor_public_profile'),
+    path('about_us', about_us, name='about_us'),
 
+    path('all_doctors/<str:type>', all_doctors, name='all_doctors'),
 
     path('all_blog/', all_blog, name='all_blog'),
     path('single_blog/<int:id>', single_blog, name='single_blog'),

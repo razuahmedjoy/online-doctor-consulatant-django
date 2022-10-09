@@ -102,10 +102,9 @@
         <div class="hero-content grid grid-cols-1 md:grid-cols-3">
             <p id="textContainer" class="typing text-lg md:text-3xl text-center text-accent font-bold"></p>
             <div class="p-5 col-span-2">
-                <h1 class="text-xl md:text-4xl leading-5">A Great place of medical care hospital center</h1>
-                <p class="py-6 text-gray-500 text-sm">It is a long established fact that a reader will be distracted by
-                    the readable content of a page when looking at its layout. It is a long established fact that a
-                    reader will be distracted by the readable content of a page when looking at its layout.</p>
+                <h1 class="text-3xl md:text-5xl leading-5">
+                    {{web_setting.about_title}}</h1>
+                <p class="py-6 text-gray-500 text-sm">{{web_setting.about_details}}</p>
                 <div class="my-4">
                     <div class="grid grid-cols-2 gap-4">
                         <div class="flex flex-col md:flex-row items-center gap-4 my-2">
@@ -113,10 +112,9 @@
                                 <i class="text-white" data-feather="user"></i>
                             </button>
                             <div>
-                                <h2 class="text-sm md:text-xl text-center md:text-left">Create Account</h2>
-                                <p class="text-xs text-gray-500 text-center md:text-left">
-                                    Just fill up a simple form
-                                </p>
+                                <a href="{{web_setting.menu_one_link}}"
+                                    class="text-sm md:text-xl text-center md:text-left">{{web_setting.menu_one}}</a>
+
                             </div>
                         </div>
                         <div class="flex flex-col md:flex-row items-center gap-4 my-2">
@@ -124,10 +122,9 @@
                                 <i class="text-white" data-feather="activity"></i>
                             </button>
                             <div>
-                                <h2 class="text-sm md:text-xl text-center md:text-left">Make Appointment</h2>
-                                <p class="text-xs text-gray-500 text-center md:text-left">
-                                    It's easy to make
-                                </p>
+                                <a href="{{web_setting.menu_two_link}}"
+                                    class="text-sm md:text-xl text-center md:text-left">{{web_setting.menu_two}}</a>
+
                             </div>
                         </div>
                         <div class="flex flex-col md:flex-row items-center gap-4 my-2">
@@ -135,10 +132,9 @@
                                 <i class="text-white" data-feather="thermometer"></i>
                             </button>
                             <div>
-                                <h2 class="text-sm md:text-xl text-center md:text-left">Doctor Checkup</h2>
-                                <p class="text-xs text-gray-500 text-center md:text-left">
-                                    Doctor will check your appointment.
-                                </p>
+                                <a href="{{web_setting.menu_three_link}}"
+                                    class="text-sm md:text-xl text-center md:text-left">{{web_setting.menu_three}}</a>
+
                             </div>
                         </div>
                         <div class="flex flex-col md:flex-row items-center gap-4 my-2">
@@ -146,10 +142,8 @@
                                 <i class="text-white" data-feather="file-plus"></i>
                             </button>
                             <div>
-                                <h2 class="text-sm md:text-xl text-center md:text-left">Your Prescription</h2>
-                                <p class="text-xs text-gray-500 text-center md:text-left">
-                                    Check your prescription and print.
-                                </p>
+                                <a href="{{web_setting.menu_four_link}}"
+                                    class="text-sm md:text-xl text-center md:text-left">{{web_setting.menu_four}}</a>
                             </div>
                         </div>
                     </div>
@@ -169,7 +163,7 @@
     <section class="py-10 bg-blue-50">
 
         <div class="section-title">
-            <h1 class="text-center text-xl md:text-4xl font-semibold mt-2 mb-16">কনসালটেন্ট
+            <h1 class="text-center text-3xl md:text-5xl font-semibold mt-2 mb-16">কনসালটেন্ট
             </h1>
 
 
@@ -241,6 +235,11 @@
 
             </div>
 
+            <div class="text-center">
+                <a class="btn btn-accent btn-sm rounded text-white" href="{%url 'all_doctors' type='Consultant' %}">সব
+                    দেখুন</a>
+
+            </div>
         </div>
 
 
@@ -252,7 +251,7 @@
     <section class="py-10 bg-base-100">
 
         <div class="section-title">
-            <h1 class="text-center text-xl md:text-4xl font-semibold mt-2 mb-16">টেলিমেডিসিন ডক্টরস</h1>
+            <h1 class="text-center text-3xl md:text-5xl font-semibold mt-2 mb-16">টেলিমেডিসিন ডক্টরস</h1>
         </div>
         <div class="container mx-auto px-5 md:px-12 lg:px-24 xl:px-32">
             <div class="doctors my-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-8">
@@ -318,6 +317,12 @@
 
             </div>
 
+            <div class="text-center">
+                <a class="btn btn-accent btn-sm rounded text-white" href="{%url 'all_doctors' type='Telemedicine' %}">সব
+                    দেখুন</a>
+
+            </div>
+
         </div>
 
 
@@ -329,7 +334,7 @@
     <section class="py-10 bg-blue-50">
 
         <div class="section-title">
-            <h1 class="text-center text-xl md:text-4xl font-semibold mt-2 mb-16">পল্লী চিকিৎসক</h1>
+            <h1 class="text-center text-3xl md:text-5xl font-semibold mt-2 mb-16">পল্লী চিকিৎসক</h1>
         </div>
         <div class="container mx-auto px-5 md:px-12 lg:px-24 xl:px-32">
             <div class="doctors my-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-8">
@@ -394,6 +399,11 @@
                 {%endfor %}
 
             </div>
+            <div class="text-center">
+                <a class="btn btn-accent btn-sm rounded text-white" href="{%url 'all_doctors' type='Rural' %}">সব
+                    দেখুন</a>
+
+            </div>
 
         </div>
 
@@ -404,7 +414,7 @@
     <!-- FAQ -->
     <section class="py-10 bg-blue-50">
         <div class="section-title">
-            <h1 class="text-center text-xl md:text-4xl font-semibold mt-2 mb-16">সচরাচর প্রশ্নোত্তর</h1>
+            <h1 class="text-center text-3xl md:text-5xl font-semibold mt-2 mb-16">সচরাচর প্রশ্নোত্তর</h1>
         </div>
         <div class="container mx-auto px-5 md:px-12 lg:px-24 xl:px-32">
 
@@ -437,7 +447,7 @@
     <!-- Testimonial -->
     <section class="py-10 bg-base-100">
         <div class="section-title">
-            <h1 class="text-center text-xl md:text-4xl font-semibold mt-2 mb-16">রিভিউ</h1>
+            <h1 class="text-center text-3xl md:text-5xl font-semibold mt-2 mb-16">রিভিউ</h1>
         </div>
         <div class="container mx-auto px-5 md:px-10 lg:px-20 xl:px-32">
 
@@ -476,7 +486,7 @@
     <!-- Village Care Center -->
     <section class="py-10 bg-base-100">
         <div class="section-title">
-            <h1 class="text-center text-xl md:text-4xl font-semibold mt-2 mb-16">ভিলেজ কেয়ার সেন্টার</h1>
+            <h1 class="text-center text-3xl md:text-5xl font-semibold mt-2 mb-16">ভিলেজ কেয়ার সেন্টার</h1>
         </div>
         <div class="container mx-auto px-5 md:px-10 lg:px-20 xl:px-32">
 
@@ -547,8 +557,10 @@
         <div class="container mx-auto px-5 md:px-10 lg:px-32">
 
             <div class="grid grid-cols-2 md:flex justify-center gap-2">
-                <a href="#" class="btn btn-sm btn-error min-w-[130px]" style="border-radius:0;">জরুরি রক্ত</a>
-                <label for="my-modal-4" class="btn btn-sm btn-error min-w-[130px]" style="border-radius:0;">
+                <a href="#" class="btn btn-sm bg-[#FF0000] min-w-[130px] border-none" style="border-radius:0;">জরুরি
+                    রক্ত</a>
+                <label for="my-modal-4" class="btn btn-sm bg-[#FF0000] border-none min-w-[130px]"
+                    style="border-radius:0;">
                     <!-- The button to open modal -->
                     জরুরি ফোন নাম্বার
 
@@ -578,7 +590,7 @@
     <!-- Our Clients -->
     <section class="py-10 bg-base-100">
         <div class="section-title">
-            <h1 class="text-center text-xl md:text-4xl font-semibold mt-2 mb-16">সহযোগী প্রতিষ্ঠান</h1>
+            <h1 class="text-center text-3xl md:text-5xl font-semibold mt-2 mb-16">সহযোগী প্রতিষ্ঠান</h1>
         </div>
         <div class="container mx-auto px-5 md:px-10 lg:px-20 xl:px-32">
 

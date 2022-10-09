@@ -9,4 +9,5 @@ from .counter import *
 from .web_setting import *
 from .healthteam import *
 from .village_care import *
+from .about import *
 from .web_setting import *

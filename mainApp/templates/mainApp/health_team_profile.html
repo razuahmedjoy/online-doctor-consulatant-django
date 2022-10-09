@@ -25,22 +25,39 @@
                 </div>
                 <div class="md:col-span-3 p-5 pt-1 md:p-5 flex items-cente justify-center flex-col">
                     <div class="name py-4 w-full md:max-w-sm mx-auto px-4 bg-accent text-white rounded">
-                        <h2 class="text-lg md:text-2xl font-semibold">{{team_member.full_name}}</h2>
-                        <span class="text-gray-100 text-sm font-medium">{{team_member.designation}}</span>
-                     
+                        <h2 class="text-xl md:text-3xl font-semibold">{{team_member.full_name}}</h2>
+                        <span class="text-gray-100 text-sm font-medium">{{team_member.designation}}</span><br>
+                        <span class="text-gray-100 text-sm font-medium">{{team_member.contact_no}}</span>
+
                     </div>
 
                     <div class="bg-white my-2 border p-5 w-full md:max-w-sm mx-auto shadow">
-                        <p>{{team_member.contact_no}}</p>
-                        <p>{{team_member.facebook}}</p>
-                        <p>{{team_member.whatsapp}}</p>
+                        <h2>যোগাযোগঃ </h2>
+                        <div class="flex gap-x-2 my-2">
+
+
+                            <a href="tel:{{team_member.whatsapp|default_if_none:'#'}}"
+                                class="text-xs p-2 bg-success cursor-pointer rounded-full flex justify-center items-centere">
+                                <i class="text-white" width="30px" height="30px" data-feather="phone-call"></i>
+                            </a>
+                            <a href="{{team_member.facebook|default_if_none:'#'}}"
+                                class="text-xs p-2 bg-info cursor-pointer rounded-full flex justify-center items-centere">
+                                <i class="text-white" width="30px" height="30px" data-feather="facebook"></i>
+                            </a>
+
+                        </div>
+
+
+
+
+
 
                     </div>
 
                 </div>
 
                 <div class="md:col-span-5 p-5">
-                    <h2 class="text-xl mb-2">BioData</h2>
+                    <h2 class="text-xl mb-2">সংক্ষেপে জানুন</h2>
                     <p>{{team_member.bio}}</p>
                 </div>
             </div>

@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Blogs {% endblock title %}
+
+
+
+{% block headerstyle %}
+
+{% endblock headerstyle %}
+
+{% block body %}
+<div class="main">
+
+    <div class="min-h-screen bg-blue-50">
+        <!-- Consultant Card -->
+        <section class="py-10 bg-blue-50">
+
+            <div class="section-title">
+                <h1 class="text-center text-xl md:text-4xl font-semibold mt-2 mb-16">
+                </h1>
+
+
+
+            </div>
+            <div class="container mx-auto px-5 md:px-12 lg:px-24 xl:px-32">
+                <div class="doctors my-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-5 lg:gap-y-10 gap-x-8">
+                    {% for doctor in doctors %}
+                    <div class="bg-base-100 shadow-xl m-4">
+
+                        <div class="relative bg-gray-100">
+                            <a href="{% url 'doctor_public_profile' pk=doctor.id %}">
+                                {% if doctor.profile_pic %}
+                                <img class="w-full h-[250px] object-contain" src="{{doctor.profile_pic.url}}"
+                                    alt="doctor_profile" />
+                                {%else %}
+                                <img class="w-full h-[250px] object-contain" src="{% static 'images/doctor.jpg' %}"
+                                    alt="doctor_profile" />
+                                {%endif %}
+                            </a>
+                            <div style="
+                        position: absolute;
+                        left: 12px;
+                        bottom: -15px;
+                    ">
+                                <div class="flex gap-x-2">
+                                    <a href="tel:{{doctor.whatsapp}}"
+                                        class="text-xs p-1 bg-success cursor-pointer rounded-full flex justify-center items-centere">
+                                        <i class="text-white" width="15px" height="15px" data-feather="phone-call"></i>
+                                    </a>
+                                    <a href="{{doctor.facebook|default_if_none:'#'}}"
+                                        class="text-xs p-1 bg-info cursor-pointer rounded-full flex justify-center items-centere">
+                                        <i class="text-white" width="15px" height="15px" data-feather="facebook"></i>
+                                    </a>
+                                    <a href="{% url 'patient_submit_new_appointment' pk=doctor.id %}"
+                                        class="text-xs p-1 bg-accent cursor-pointer rounded-full flex justify-center items-centere">
+                                        <i class="text-white" width="15px" height="15px" data-feather="send"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="p-4 pt-5">
+                            <div class="text-gray-500 text-sm">{{doctor.designation}}</div>
+                            <a href="{% url 'doctor_public_profile' pk=doctor.id %}">
+                                <h2 class="card-title text-base md:text-lg lg:text-xl mb-2 capitalize">
+                                    {{doctor.full_name}}
+
+                                </h2>
+                            </a>
+
+                            <!-- <div class="flex flex-col gap-2 flex-nowrap justify-end">
+                            <a href="{% url 'doctor_public_profile' pk=doctor.id %}"
+                                class="btn btn-xs md:btn-sm rounded-full btn-outline">Profile</a>
+                            <a href="{% url 'patient_submit_new_appointment' pk=doctor.id %}"
+                                class="btn btn-xs md:btn-sm rounded-full btn-outline">Appointment</a>
+                        </div> -->
+                        </div>
+
+                    </div>
+                    {%endfor %}
+
+
+
+                </div>
+
+            </div>
+
+
+        </section>
+        <!-- Consultant Card -->
+    </div>
+</div>
+
+
+{% endblock body %}

@@ -15,10 +15,10 @@ def home(request):
 
 
 
-    consultants = doctors.filter(type='Consultant')
-    telemedicine = doctors.filter(type='Telemedicine')
-    ruralDoctors = doctors.filter(type='Rural')
-
+    consultants = doctors.filter(type='Consultant')[0:4]
+    telemedicine = doctors.filter(type='Telemedicine')[0:4]
+    ruralDoctors = doctors.filter(type='Rural')[0:4]
+    # print(consultants)
     context['consultants'] = consultants
     context['telemedicine'] = telemedicine
     context['ruralDoctors'] = ruralDoctors
@@ -44,3 +44,13 @@ def doctor_public_profile(request,pk):
         return redirect('home')
     context['doctor'] = doctor
     return render(request, 'mainApp/doctor_profile.html',context)
+
+
+def all_doctors(request,type):
+    context = {}
+    try:
+        doctors = Doctor.objects.filter(type=type)
+    except:
+        return redirect('home')
+    context['doctors'] = doctors
+    return render(request, 'mainApp/all_doctor.html',context)
