@@ -15,5 +15,7 @@ class Web_Settings(models.Model):
     menu_four = models.CharField(max_length=100,null=True, blank=True)
     menu_four_link = models.CharField(max_length=100,null=True, blank=True)
 
+    scroll_notice = models.CharField(max_length=200,null=True, blank=True)
+
     def __str__(self):
         return f"Settings ( Don't Delete it )"

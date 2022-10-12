@@ -1,16 +1,17 @@
 {% load static %}
 
-<header class="navbar bg-base-100 shadow-lg md:px-24">
+<div class="navbar bg-base-100 shadow-lg md:px-24">
     <div class="navbar-start">
-
+        
+     
         <a href="/" class="cursor-pointer font-bold normal-case text-xl">VillageCare</a>
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul tabindex="0" class="menu menu-horizontal p-0 z-50">
+            <li><a href="{% url 'about_us' %}">আমাদের সম্পর্কে</a></li>
+            <li><a href="{% url 'medicine_bank' %}">মেডিসিন ব্যাংক</a></li>
             <li><a href="{% url 'all_blog' %}">সাস্থ্যবার্তা</a></li>
             <li><a href="{% url 'all_gallery' %}">গ্যালারি</a></li>
-            <li><a href="{% url 'medicine_bank' %}">মেডিসিন ব্যাংক</a></li>
-            <li><a href="{% url 'about_us' %}">আমাদের সম্পর্কে</a></li>
            
         </ul>
     </div>
@@ -26,6 +27,7 @@
                 <button class="btn btn-xs md:btn-sm rounded-full">Register</button>
             </a>
         </div>
+        
         {% else %}
         <div class="dropdown dropdown-end">
             <div class="flex items-center">
@@ -58,7 +60,19 @@
 
                 <li><a href="{% url 'logout' %}">Logout</a></li>
             </ul>
+
         </div>
         {% endif %}
+        <div class="dropdown">
+            <label tabindex="0" class="btn btn-ghost lg:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+            </label>
+            <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 right-0">
+                <li><a href="{% url 'about_us' %}">আমাদের সম্পর্কে</a></li>
+                <li><a href="{% url 'medicine_bank' %}">মেডিসিন ব্যাংক</a></li>
+                <li><a href="{% url 'all_blog' %}">সাস্থ্যবার্তা</a></li>
+                <li><a href="{% url 'all_gallery' %}">গ্যালারি</a></li>
+            </ul>
+          </div>
     </div>
-</header>
+</div>
