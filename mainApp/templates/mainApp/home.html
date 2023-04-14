@@ -425,15 +425,16 @@
                 <div class="w-full flex flex-col gap-4 order-2 lg:order-1">
 
                     {% for faq in faqs %}
-                    <div class="collapse collapse-plus shadow-xl rounded-lg">
-                        <input type="checkbox" class="peer" />
-                        <div class="collapse-title bg-white">
+
+                    <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box" style="visibility: inherit !important;">
+                        <div class="collapse-title text-xl font-medium">
                             {{faq.question}}
                         </div>
-                        <div class="collapse-content bg-gray-50">
+                        <div class="collapse-content">
                             <p>{{faq.answer}}</p>
                         </div>
-                    </div>
+                      </div>
+                  
                     {%endfor %}
 
 
